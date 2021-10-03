@@ -1,21 +1,20 @@
 package hrynkevych.serhii;
 
 public class ReversNumber {
-    static int revNumber = 0;
 
     public static void main(String[] args) {
-        int number = 123;
-        revers(number);
+        int number = 574;
+        int revNumber = revers(number, 0);
         System.out.println(revNumber);
     }
 
-    private static void revers(int number) {
+    private static int revers(int number, int reversNumber) {
         if (number == 0) {
-            return;
-        } else {
-            //System.out.print(number % 10);
-            revNumber = revNumber * 10 + (number % 10);
-            revers(number / 10);
+            return reversNumber;
+        }  else {
+            int digit = number % 10;
+            reversNumber = reversNumber * 10 + digit;
+            return revers(number / 10, reversNumber);
         }
     }
 }
